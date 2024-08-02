@@ -1,6 +1,9 @@
 import 'image_routes.dart';
 
 class AppStaticData {
+  static const API_URL = "https://ophim1.com/";
+  static const IMG_URL = "https://img.ophim.live/uploads/movies/";
+
   static const List profileOptionsData = [
     ['Edit Profile', AppImagesRoute.iconProfile],
     ['Notification', AppImagesRoute.iconBell],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mova/config/global/utils/random_movie_point.dart';
+import 'package:mova/models/movie_home.dart';
 import '../../theme/app_colors.dart';
 
 class MovieCardItem extends StatelessWidget {
@@ -8,6 +9,7 @@ class MovieCardItem extends StatelessWidget {
  final int itemCount;
  final String movieCategory;
  final bool needsSpacing;
+ final MovieHome? movieHome;
 
   const MovieCardItem({
     Key? key,
@@ -15,6 +17,7 @@ class MovieCardItem extends StatelessWidget {
     required this.itemCount,
     required this.movieCategory,
     required this.needsSpacing,
+    this.movieHome,
   }) : super(key: key);
 
   @override
@@ -34,21 +37,24 @@ class MovieCardItem extends StatelessWidget {
           fit: BoxFit.fitHeight,
         ),
       ),
-      child: Align(
-        alignment: Alignment.topLeft,
-        child: Container(
-          margin: const EdgeInsets.all(12),
-          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
-          decoration: BoxDecoration(
-              color: theme.primaryColor,
-              borderRadius: BorderRadius.circular(6)),
-          child: Text(
-            getRandomMoviePoint(minPoint: 7, maxPoint: 10),
-            style: theme.textTheme.labelSmall!
-                .copyWith(fontWeight: FontWeight.w600, color: AppColors.white),
+      child: Column(children: [
+        Align(
+          alignment: Alignment.topLeft,
+          child: Container(
+            margin: const EdgeInsets.all(12),
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+            decoration: BoxDecoration(
+                color: theme.primaryColor,
+                borderRadius: BorderRadius.circular(6)),
+            child: Text(
+              getRandomMoviePoint(minPoint: 7, maxPoint: 10),
+              style: theme.textTheme.labelSmall!
+                  .copyWith(fontWeight: FontWeight.w600, color: AppColors.white),
+            ),
           ),
         ),
-      ),
+        Text(movieHome?.name ?? "")
+      ],)
     );
   }
 }
