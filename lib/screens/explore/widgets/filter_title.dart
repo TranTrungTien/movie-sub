@@ -20,7 +20,7 @@ class FilterTitle extends StatelessWidget {
         children: [
           Text(
             title,
-            style: theme.textTheme.headlineSmall!.copyWith(
+            style: theme.textTheme.labelLarge!.copyWith(
               color: AppDynamicColorBuilder.getGrey800AndWhite(context),
             ),
           ),

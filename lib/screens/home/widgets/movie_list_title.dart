@@ -13,7 +13,7 @@ class MovieListTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return SliverPadding(
-      padding:  EdgeInsets.all(24.w),
+      padding:  EdgeInsets.all(16.w),
       sliver: SliverToBoxAdapter(
         child: Row(
           children: [

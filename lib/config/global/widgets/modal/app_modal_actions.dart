@@ -24,7 +24,7 @@ class AppModalActions extends StatelessWidget {
           thickness: 1,
         ),
         Padding(
-          padding: const EdgeInsets.all(24),
+          padding: const EdgeInsets.all(16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -43,7 +43,7 @@ class AppModalActions extends StatelessWidget {
                     ),
                     child: Text(
                       secondaryButtonTitle,
-                      style: theme.textTheme.bodyLarge!.copyWith(
+                      style: theme.textTheme.bodySmall!.copyWith(
                         color:
                         AppDynamicColorBuilder.getPrimaryAndWhite(context),
                       ),
@@ -68,7 +68,7 @@ class AppModalActions extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     child: Text(primaryButtonTitle,
-                        style: theme.textTheme.bodyLarge!
+                        style: theme.textTheme.bodySmall!
                             .copyWith(color: AppColors.white)),
                   ),
                 ),

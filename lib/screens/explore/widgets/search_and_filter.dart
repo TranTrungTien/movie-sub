@@ -23,7 +23,7 @@ class _SearchAndFilterState extends State<SearchAndFilter> {
   @override
   Widget build(BuildContext context) {
     return const SliverPadding(
-      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
       sliver: SliverToBoxAdapter(
         child: Row(
           children: [
@@ -47,20 +47,21 @@ class FilterButton extends StatelessWidget {
     return GestureDetector(
       onTap: () => showAppModal(
         context: context,
-        initChildSize: .7,
-        minChildSize: .4,
-        maxChildSize: .9,
+        initChildSize: .8,
+        minChildSize: .8,
+        maxChildSize: 1,
         modalTitle: 'Sort & Filter',
         primaryButtonTitle: 'Apply',
         secondaryButtonTitle: 'Reset',
-        mainModalContent: Card(
+        mainModalContent: Container(
           color: Colors.transparent,
-          elevation: 0,
-          child: ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: AppStaticData.exploreModalTitles.length,
-            itemBuilder: (context, index) => ExploreModalItem(index: index),
+          child: Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: AppStaticData.explorers.length,
+              itemBuilder: (context, index) => ExploreModalItem(index: index),
+            ),
           ),
         ),
       ),
@@ -152,6 +153,3 @@ class _SearchFieldState extends State<SearchField> {
     );
   }
 }
-
-
-

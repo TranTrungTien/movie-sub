@@ -23,38 +23,55 @@ class MovieCardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    return Container(
+    final margin = needsSpacing ? EdgeInsets.only(
+                    left: itemIndex == 0 ? 6.w : 10.w,
+                    right: itemIndex == itemCount - 1 ? 6.w : 0)
+                    : null;
+
+    return SizedBox(
       width: 150.w,
-      margin: needsSpacing
-          ? EdgeInsets.only(
-              left: itemIndex == 0 ? 24.w : 10.w,
-              right: itemIndex == itemCount - 1 ? 24.w : 0)
-          : null,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        image: DecorationImage(
-          image: AssetImage('assets/images/$movieCategory/$itemIndex.png'),
-          fit: BoxFit.fitHeight,
-        ),
-      ),
-      child: Column(children: [
-        Align(
-          alignment: Alignment.topLeft,
-          child: Container(
-            margin: const EdgeInsets.all(12),
-            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
-            decoration: BoxDecoration(
-                color: theme.primaryColor,
-                borderRadius: BorderRadius.circular(6)),
-            child: Text(
-              getRandomMoviePoint(minPoint: 7, maxPoint: 10),
-              style: theme.textTheme.labelSmall!
-                  .copyWith(fontWeight: FontWeight.w600, color: AppColors.white),
-            ),
+      child: Column( 
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Container(
+              margin: margin,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                image: DecorationImage(
+                  image: NetworkImage("https://img.ophim.live/uploads/movies/${movieHome?.thumbUrl ?? ""}"),
+                  fit: BoxFit.cover
+                )
+              ),
+              child: Align(
+                alignment: Alignment.topRight,
+                child: Container(
+                  margin: const EdgeInsets.all(12),
+                  padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+                  decoration: BoxDecoration(
+                      color: theme.primaryColor,
+                      borderRadius: BorderRadius.circular(6)),
+                  child: Text(
+                    movieHome?.quality ?? '',
+                    style: theme.textTheme.labelSmall!
+                        .copyWith(fontWeight: FontWeight.w600, color: AppColors.white),
+                  ),
+                ),
+              ),
+            ),  
           ),
-        ),
-        Text(movieHome?.name ?? "")
-      ],)
+          const SizedBox(height: 5,),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16), 
+              child: Text(movieHome?.name ?? "", 
+                style: theme.textTheme.titleSmall, 
+                overflow: TextOverflow.ellipsis, 
+                maxLines: 1
+              )
+            )
+        ],
+      ),
     );
   }
 }

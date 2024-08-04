@@ -21,17 +21,14 @@ class _ExploreScreenState extends State<ExploreScreen> {
           child: CustomScrollView(
             slivers: [
               const SearchAndFilter(),
-              SliverToBoxAdapter(
-                child: MovieFilters(),
-              ),
-              const SliverPadding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-                sliver: MoviesGrid(
-                  childCount: 6,
-                  movieCategory: 'new_movies',
-                ),
-              )
+              // const SliverPadding(
+              //   padding:
+              //       EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+              //   sliver: MoviesGrid(
+              //     childCount: 6,
+              //     movieCategory: 'new_movies',
+              //   ),
+              // )
             ],
           ),
         ),
