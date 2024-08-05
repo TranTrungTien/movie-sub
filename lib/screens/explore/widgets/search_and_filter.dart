@@ -50,19 +50,15 @@ class FilterButton extends StatelessWidget {
         initChildSize: .8,
         minChildSize: .8,
         maxChildSize: 1,
-        modalTitle: 'Sort & Filter',
-        primaryButtonTitle: 'Apply',
-        secondaryButtonTitle: 'Reset',
-        mainModalContent: Container(
-          color: Colors.transparent,
-          child: Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: AppStaticData.explorers.length,
-              itemBuilder: (context, index) => ExploreModalItem(index: index),
-            ),
-          ),
+        modalTitle: 'Bộ lọc',
+        primaryButtonTitle: 'Tìm kiếm',
+        secondaryButtonTitle: 'Xóa lọc',
+        mainModalContent: Column(
+          children: AppStaticData.explorers
+              .asMap()
+              .entries
+              .map((entry) => ExploreModalItem(index: entry.key))
+              .toList(),
         ),
       ),
       child: Container(

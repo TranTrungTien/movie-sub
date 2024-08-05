@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mova/models/slug.dart';
 
 class MovieFilters extends StatefulWidget {
-  int? selectedIndex;
+  final int? selectedIndex;
   final List<Slug> slugs;
 
-  MovieFilters({
+  const MovieFilters({
     super.key,
     this.selectedIndex,
     required this.slugs,

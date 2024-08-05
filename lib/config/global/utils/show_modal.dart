@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../theme/app_theme.dart';
 import '../widgets/modal/app_modal_actions.dart';
 import '../widgets/modal/app_modal_title.dart';
+
 showAppModal({
   required BuildContext context,
   required String modalTitle,
@@ -21,7 +22,7 @@ showAppModal({
       barrierColor: const Color(0xff09101D).withOpacity(0.7),
       builder: (context) => Padding(
         padding:
-        EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+            EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: DraggableScrollableSheet(
           initialChildSize: initChildSize,
           minChildSize: minChildSize,
@@ -35,17 +36,16 @@ showAppModal({
               ),
             ),
             child: CustomScrollView(
-              physics: const NeverScrollableScrollPhysics(),
               controller: scrollController,
               slivers: [
-                 AppModalTitle(modalTitle: modalTitle),
+                AppModalTitle(modalTitle: modalTitle),
                 SliverToBoxAdapter(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       mainModalContent,
-                       AppModalActions(
+                      AppModalActions(
                         primaryButtonTitle: primaryButtonTitle,
                         secondaryButtonTitle: secondaryButtonTitle,
                       ),

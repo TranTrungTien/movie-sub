@@ -36,16 +36,16 @@ class AppModalActions extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       elevation: 0,
                       backgroundColor:
-                      AppDynamicColorBuilder.getPrimary100AndDark3(context),
+                          AppDynamicColorBuilder.getPrimary100AndDark3(context),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(100),
                       ),
                     ),
                     child: Text(
                       secondaryButtonTitle,
-                      style: theme.textTheme.bodySmall!.copyWith(
+                      style: theme.textTheme.bodyMedium!.copyWith(
                         color:
-                        AppDynamicColorBuilder.getPrimaryAndWhite(context),
+                            AppDynamicColorBuilder.getPrimaryAndWhite(context),
                       ),
                     ),
                   ),
@@ -68,7 +68,7 @@ class AppModalActions extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     child: Text(primaryButtonTitle,
-                        style: theme.textTheme.bodySmall!
+                        style: theme.textTheme.bodyMedium!
                             .copyWith(color: AppColors.white)),
                   ),
                 ),

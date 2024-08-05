@@ -14,15 +14,15 @@ class FilterTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.only(left: 24),
+      padding: const EdgeInsets.only(left: 6),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
             title,
             style: theme.textTheme.labelLarge!.copyWith(
-              color: AppDynamicColorBuilder.getGrey800AndWhite(context),
-            ),
+                color: AppDynamicColorBuilder.getGrey800AndWhite(context),
+                fontWeight: FontWeight.w600),
           ),
         ],
       ),

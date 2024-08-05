@@ -40,12 +40,9 @@ class _ExploreModalItemState extends State<ExploreModalItem> {
             future: future,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: MovieFilters(
-                    selectedIndex: 0,
-                    slugs: snapshot.data!,
-                  ),
+                return MovieFilters(
+                  selectedIndex: 0,
+                  slugs: snapshot.data!,
                 );
               }
               return const SizedBox.shrink();

@@ -51,7 +51,7 @@ class AppStaticData {
       'url': "/v1/api/danh-sach/phim-vietsub"
     },
     'narration': {
-      'Phim thuyết minh': "Narration",
+      'name': "Phim thuyết minh",
       'url': "/v1/api/danh-sach/phim-thuyet-minh"
     },
     'dubbing': {

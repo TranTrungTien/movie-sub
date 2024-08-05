@@ -73,7 +73,8 @@ class MovieTypeGrid extends StatelessWidget {
             sliver: MoviesGrid(
               childCount: movies.length,
               movieCategory: 'new_movies',
-              movieHome: movies,
+              movies: movies,
+              callback: (value) {},
             ),
           );
         } else {
